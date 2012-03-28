@@ -1,0 +1,411 @@
+/* CSS Document */
+body {
+	font-family: Verdana, Arial, sans-serif;
+	background: #464754;
+	margin: 0px auto;
+	padding: 0 0 20px 0;
+}
+
+#shadow-one {
+	width: 760px;
+	border: 1px solid #555;
+	border-top: 0;
+	margin: 0px auto;
+}
+#shadow-two {
+	border: 1px solid #4b0000;
+	border-top: 0;
+}
+#shadow-three {
+	border: 1px solid #444;
+	border-top: 0;
+}
+#shadow-four {
+	border: 1px solid #464754;
+	border-top: 0;
+}
+
+#page {
+	border: 1px solid #888;
+	background: #fff;
+	border-top: 0;
+	padding: 20px;
+	font-size: 10pt;
+}
+
+#page td {
+	font-size: 10pt;
+}
+
+#title {
+	background: #707d89;
+	padding: 20px;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 15px;
+	height: 20px;
+}
+
+#title .right {
+	
+	float: center;
+	font-weight: bold;
+	width: 400px;
+	text-align: right;
+padding-left: 85px;
+	color: #fff;
+font-size: 16pt;
+
+}
+
+#menu {
+	float: left;
+	width: 150px;
+	padding-right: 20px;
+}
+
+#menu a {
+	width: 140px;
+	display: block;
+	background: #707d89;
+	color: white;
+	padding: 8px;
+	font-weight: bold;
+	border-bottom: 1px solid #fff;
+	text-decoration: none;
+}
+
+#menu a:hover {
+	background: #a1a2b0;
+}
+
+#content {
+	width: 525px;
+	float: right;
+	padding-right: 10px;
+}
+
+#content a {
+	color: #c00;
+	text-decoration: none;
+}
+
+#content a:hover {
+	color: #d33;
+	text-decoration: underline;
+}
+
+#content h1 {
+	margin-top: 0px;
+}
+
+.spacer {
+	clear: both;
+}
+
+#footer {
+	font-size: 0.8em;
+	color: #666;
+	text-align: center;
+	margin: 10px 50px 0 50px;
+	padding-top: 10px;
+	border-top: 1px dotted #666;
+}
+
+#status {
+	width: 502px;
+	float: right;
+	padding: 10px;
+	margin: 10px;
+	border: 1px  #fff;
+	border-style: ridge;
+	
+	font-weight: bold;
+}
+
+#status p {
+	padding: 5px 0 5px 10px;
+	text-indent: -10px;
+	margin: 0;
+}
+
+#status .leds {
+	font-size: 18pt;
+}
+
+#status .marges {
+	
+
+margin-left:29px;
+
+
+}
+
+#status .marges1 {
+	
+
+
+margin-left:20px;
+text-align:left
+
+}
+
+#status .marges2 {
+	
+
+
+	margin-left:30px;
+text-align:left
+}
+
+#status .marges3 {
+	
+
+margin-left:40px;
+text-align:left
+}
+
+#status .leds a {
+	color: #ddd;
+	cursor: pointer;
+}
+
+#status .leds a:hover {
+	color: #ddd;
+	text-decoration: none;
+}
+
+.examplebox {
+	margin:20px 20px 20px 20px;
+	padding: 8px;
+	border: 1px dotted #888;
+	text-align:center;
+	background:#707d89;
+}
+
+.code {
+	font-family: Courier New, Courier, fixed-width, fixed;
+}
+
+.exercise {
+	background: #707d89;
+	padding: 2px;
+	margin-left: 10px;
+	border-left: 2px solid #707d89;
+font-weight: bold;
+color: white;
+}
+
+.error {
+	margin-left: 10px;
+	padding: 20px;
+	background: #707d89;
+	border-left: 2px solid #707d89;
+
+}
+
+#content h6 {
+	border-top: 1px dashed #888;
+	margin: 15px;
+	padding: 0px;
+	height: 1px;
+}
+
+.examplebox td {
+	text-align:left;
+	padding-right: 15px;
+                margin: 0px auto;
+
+
+
+
+	background:#707d89;
+
+
+
+
+
+}
+
+fieldset {
+	margin:10px 20px 10px 20px;
+	padding: 8px;
+	border: 1px dotted #888;
+	background:#888;
+}
+
+fieldset div {
+	padding: 2px 0px 2px 150px;
+}
+
+fieldset label {
+	padding-top: 2px;
+	padding-left: 5px;
+	width: 135px;
+	font-weight: bold;
+}
+
+fieldset div label {
+	margin-left: -140px;
+	padding-top: 2px;
+	width: 135px;
+	font-weight: bold;
+	position: absolute;
+}
+
+fieldset input {
+	width: 250px;
+}
+
+fieldset input.sm {
+	width: auto;
+}
+
+fieldset textarea {
+	width: 250px;
+}
+
+.result
+{
+	margin: 10px 40px 10px 40px;
+	padding: 8px;
+	border: 1px solid #888;
+	text-align: center;
+	font-weight: bold;
+	background: #888;
+}
+
+	.ok {
+		border-color: #888;
+		background: #efe;
+	}
+	
+	.fail {
+		border-color: #888;
+		background: #fee;
+	}
+	
+	.unk {
+		border-color: #cc6;
+		background: #ffd;
+	}
+	
+	fieldset2 {
+	margin:10px 40px 10px 40px;
+	padding: 8px;
+	border: 1px dotted #888;
+	background:#888;
+}
+
+/*//////////// PPE ////////////*/
+
+
+#shadow-one2 {
+
+}
+
+#page2 {
+
+}
+
+#content2 {margin-top: -10px;
+	margin-left: 8px;
+	
+}
+
+#content2 a {
+	color: #c00;
+	text-decoration: none;
+}
+
+#content2 a:hover {
+	color: #d33;
+	text-decoration: underline;
+}
+
+#content2 h1 {
+	margin-top: 0px;
+}
+
+.spacer {
+	clear: both;
+}
+
+
+#status2 {
+	
+}
+
+#status2 table {
+  margin-left : 0px;
+}
+
+#status2 p {
+	padding: 5px 0 5px 10px;
+	/*text-indent: -12px;*/
+	margin: 0;
+}
+
+#status2 .leds2 {
+  margin-left: -14px;
+  
+	font-size: 12pt;
+}
+
+#status2 .marges {
+margin-left:0px;
+}
+
+#status2 .marges1 {
+margin-left:0px;
+text-align:left
+}
+
+#status2 .marges2 {
+margin-left:0px;
+text-align:left
+}
+
+#status2 .marges3 {
+margin-left:0px;
+text-align:left
+}
+
+#status2 .leds2 a {
+	color: #ddd;
+	cursor: pointer;
+}
+
+#status2 .leds2 a:hover {
+	color: #ddd;
+	text-decoration: none;
+}
+
+.examplebox {
+	margin:20px 20px 20px 20px;
+	padding: 8px;
+	border: 1px dotted #888;
+	text-align:center;
+	background:#707d89;
+}
+
+.code {
+	font-family: Courier New, Courier, fixed-width, fixed;
+}
+
+.exercise {
+	background: #707d89;
+	padding: 0px;
+	margin-left: 10px;
+	border-left: 2px solid #fff;
+font-weight: bold;
+color: white;
+}
+
+.error {
+	margin-left: 10px;
+	padding: 20px;
+	background: #fff;
+	border-left: 2px solid #fff;
+
+}

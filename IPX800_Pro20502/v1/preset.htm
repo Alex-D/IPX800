@@ -1,0 +1,104 @@
+~inc:header.inc~
+<div id="content">
+
+<p class="exercise">Channels 1-8 <span style="margin-left:100px;"></span>Preset mode<b></p>
+<h6></h6>
+
+<form method="get" action="preset.htm">
+<div class="examplebox">
+<span style="float:left;height: 10px; with: 0px;font-size:11px;font-weight:bold;margin-left:40px; letter-spacing:4em ">12345678</span>
+<p></p>
+
+<select name="led1"><option value="1" ~ledSelected(0,TRUE)~>On</option><option value="0" ~ledSelected(0,FALSE)~>Off</option></select>&nbsp;
+<select name="led2"><option value="1" ~ledSelected(1,TRUE)~>On</option><option value="0" ~ledSelected(1,FALSE)~>Off</option></select>&nbsp; 
+<select name="led3"><option value="1" ~ledSelected(2,TRUE)~>On</option><option value="0" ~ledSelected(2,FALSE)~>Off</option></select>&nbsp; 
+<select name="led4"><option value="1" ~ledSelected(3,TRUE)~>On</option><option value="0" ~ledSelected(3,FALSE)~>Off</option></select>&nbsp;
+<select name="led5"><option value="1" ~ledSelected(4,TRUE)~>On</option><option value="0" ~ledSelected(4,FALSE)~>Off</option></select>&nbsp;  
+<select name="led6"><option value="1" ~ledSelected(5,TRUE)~>On</option><option value="0" ~ledSelected(5,FALSE)~>Off</option></select>&nbsp;
+<select name="led7"><option value="1" ~ledSelected(6,TRUE)~>On</option><option value="0" ~ledSelected(6,FALSE)~>Off</option></select>&nbsp;
+<select name="led8"><option value="1" ~ledSelected(7,TRUE)~>On</option><option value="0" ~ledSelected(7,FALSE)~>Off</option></select>&nbsp;
+<br /><input type="submit" value="Save" style="margin-top:5px;">
+
+<p></p>
+<p></p>
+
+<p></p>
+</form>
+</div>
+
+<p class="exercise">Channels 1-8  <span style="margin-left:100px;"></span> On/Off mode<b></p>
+
+<h6></h6>
+<div class="examplebox">
+<span style="float:left;height: 10px; with: 0px;font-size:11px;font-weight:bold;margin-left:76px; letter-spacing:3.25em ">12345678</span>
+<b></br>
+<p></p>
+<INPUT type="button" value="On" style="width:40px" name="led1" ~ledSelected(0,TRUE)~ onclick="window.location='preset.htm?led1=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led2" ~ledSelected(1,TRUE)~ onclick="window.location='preset.htm?led2=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led3" ~ledSelected(2,TRUE)~ onclick="window.location='preset.htm?led3=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led4" ~ledSelected(3,TRUE)~ onclick="window.location='preset.htm?led4=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led5" ~ledSelected(4,TRUE)~ onclick="window.location='preset.htm?led5=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led6" ~ledSelected(5,TRUE)~ onclick="window.location='preset.htm?led6=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led7" ~ledSelected(6,TRUE)~ onclick="window.location='preset.htm?led7=1';" style="margin-left:5px;">
+<INPUT type="button" value="On" style="width:40px" name="led8" ~ledSelected(7,TRUE)~ onclick="window.location='preset.htm?led8=1';" style="margin-left:5px;">
+
+<p></p>
+
+
+<INPUT type="button" value="Off" style="width:40px" name="led1" ~ledSelected(0,FALSE)~ onclick="window.location='preset.htm?led1=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led2" ~ledSelected(1,FALSE)~ onclick="window.location='preset.htm?led2=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led3" ~ledSelected(2,FALSE)~ onclick="window.location='preset.htm?led3=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led4" ~ledSelected(3,FALSE)~ onclick="window.location='preset.htm?led4=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led5" ~ledSelected(4,FALSE)~ onclick="window.location='preset.htm?led5=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led6" ~ledSelected(5,FALSE)~ onclick="window.location='preset.htm?led6=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led7" ~ledSelected(6,FALSE)~ onclick="window.location='preset.htm?led7=0';" style="margin-left:5px;">
+<INPUT type="button" value="Off" style="width:40px" name="led8" ~ledSelected(7,FALSE)~ onclick="window.location='preset.htm?led8=0';" style="margin-left:5px;">
+
+
+<p></p>
+<p></p>
+</div>
+
+
+
+<p class="exercise">Channels 1-8 <span style="margin-left:100px;"></span> Fugitif mode<b></p>
+<h6></h6>
+
+<div class="examplebox">
+<span style="float:left;height: 10px; with: 0px;font-size:11px;font-weight:bold;margin-left:76px; letter-spacing:3.25em ">12345678</span>
+<p></p>
+
+<INPUT type="button" value="Ch 1" style="width:40px"name="RLY1" ~RLY1~ onclick="window.location='preset.htm?RLY1=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 2" style="width:40px"name="RLY2" ~RLY2~ onclick="window.location='preset.htm?RLY2=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 3" style="width:40px"name="RLY3" ~RLY3~ onclick="window.location='preset.htm?RLY3=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 4" style="width:40px"name="RLY4" ~RLY4~ onclick="window.location='preset.htm?RLY4=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 5" style="width:40px"name="RLY5" ~RLY5~ onclick="window.location='preset.htm?RLY5=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 6" style="width:40px"name="RLY6" ~RLY6~ onclick="window.location='preset.htm?RLY6=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 7" style="width:40px"name="RLY7" ~RLY7~ onclick="window.location='preset.htm?RLY7=1';"style="margin-left:5px;">
+<INPUT type="button" value="Ch 8" style="width:40px"name="RLY8" ~RLY8~ onclick="window.location='preset.htm?RLY8=1';"style="margin-left:5px;">
+<p></p>
+
+
+
+<form method="get" action="preset.htm">
+
+<div><label>Set Delay (0 to 9999)</label></div>
+
+<td><input type="text"  maxlength="4" name="delay" style="width:30px"  value ="~DelayOff~" style="margin-left:5px;">
+<td><input type="submit" class="sm" value="Set"
+
+</form>
+
+
+</div>
+
+</div>
+
+
+
+
+~inc:footer.inc~
+
+
+
+

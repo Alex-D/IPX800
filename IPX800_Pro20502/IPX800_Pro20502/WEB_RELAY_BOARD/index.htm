@@ -1,0 +1,124 @@
+~inc:header.inc~
+<div id="content">
+
+<div id="status">
+	<div id="loading" style="display:none">Error:<br />Connection to relay board was lost.</div>
+	<div id="display">
+
+<h5>
+<p class="exercise">Relay Status<b></p>
+</h5>
+<p><br />
+		<span class="leds">
+		<a id="led0" onclick="newAJAXCommand('leds.cgi?led=0');">&bull;</a>
+		<a id="led1" onclick="newAJAXCommand('leds.cgi?led=1');">&bull;</a>
+		<a id="led2" onclick="newAJAXCommand('leds.cgi?led=2');">&bull;</a>
+		<a id="led3" onclick="newAJAXCommand('leds.cgi?led=3');">&bull;</a>
+		<a id="led4" onclick="newAJAXCommand('leds.cgi?led=4');">&bull;</a>
+		<a id="led5" onclick="newAJAXCommand('leds.cgi?led=5');">&bull;</a>
+		<a id="led6" onclick="newAJAXCommand('leds.cgi?led=6');">&bull;</a>
+		<a id="led7" onclick="newAJAXCommand('leds.cgi?led=7');">&bull;</a>
+		</span></p>
+
+<span style="float:left;height: 10px; with: 0px;font-size:11px;font-weight:bold;margin-left:15px; letter-spacing:1.545em ">12345678</span>
+<p><br />
+<p><br />
+
+
+<h5>
+<p class="exercise">Fugitif Mode<b></p>
+</h5>
+<p></p>
+<INPUT type="button" value="Ch 1" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=0');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 2" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=1');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 3" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=2');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 4" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=3');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 5" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=4');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 6" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=5');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 7" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=6');"style="margin-left:5px;">
+<INPUT type="button" value="Ch 8" style="width:40px"onclick="newAJAXCommand('rlyfs.cgi?rlyf=7');"style="margin-left:5px;">
+<p></p>
+
+
+
+
+<p><br /<h5>
+<p class="exercise">Digital Input Level<b></p>
+</h5>
+
+<p>	<span class="marges"><span id="btn3">?</span> &nbsp; 
+	<span class="marges"><span id="btn2">?</span> &nbsp; 
+	<span class="marges"><span id="btn1">?</span> &nbsp; 
+	<span class="marges"><span id="btn0">?</span></p>
+<span style="float:left;height: 10px; with: 0px;font-size:11px;font-weight:bold;margin-left:30px; letter-spacing:3.8em ">1234</span>
+<p><br />
+<span style="float:left;height: 10px; with: 0px;font-size:9px;font-weight:normal;margin-left:57px;">0/1 Digital logic state</span>
+
+<p><br />
+
+		<h5>
+<p class="exercise">Analog Input Level<b></p>
+</h5>
+		<p>Analog 1: <span id="an1" style="font-weight:normal">?</span></p>
+		<p>Analog 2: <span id="an2" style="font-weight:normal">?</span></p>
+	</div>
+</div>
+<p>
+</p>
+<p>
+</p>
+<div id="display">
+
+
+
+
+<p align="center">Internet time: <span id="time0" style="font-weight:normal">?</span></p>
+
+</div>
+</div>
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		document.getElementById('display').style.display = 'none';
+		document.getElementById('loading').style.display = 'inline';
+		return;
+	}
+
+	// Make sure we're displaying the status display
+	document.getElementById('loading').style.display = 'none';
+	document.getElementById('display').style.display = 'inline';
+	
+	// Loop over all the LEDs
+	for(i = 0; i < 8; i++) {
+		if(getXMLValue(xmlData, 'led'+i) == '1')
+			document.getElementById('led' + i).style.color = '#090';
+		else
+			document.getElementById('led' + i).style.color = '#ddd';
+	}
+	
+	// Loop over all the buttons
+	for(i = 0; i < 4; i++) {
+		if(getXMLValue(xmlData, 'btn'+i) == 'up')
+			document.getElementById('btn' + i).innerHTML = '0';
+		else
+			document.getElementById('btn' + i).innerHTML = '1';
+	}
+	
+	// Update analog value
+	document.getElementById('an1').innerHTML = getXMLValue(xmlData, 'an1');
+		
+	document.getElementById('an2').innerHTML = getXMLValue(xmlData, 'an2');
+
+	// Update the time value
+	document.getElementById('time0').innerHTML = getXMLValue(xmlData, 'time0');
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+
+~inc:footer.inc~

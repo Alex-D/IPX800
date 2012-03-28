@@ -1,0 +1,24 @@
+~inc:header.inc~
+<div id="content">
+
+<h3>HTTP port redirection</h3>
+<p>This page allows the configuration of the board's network settings.</p>
+<p class="error">
+<b>CAUTION:</b> Incorrect settings may cause the board to lose network 
+connectivity.  Recovery options will be provided with hard reset</p>
+
+<b>Default port number is 80:</b>
+
+
+<form method="get" action="/protect/port.htm" name="portconfig">
+<fieldset>
+<div><label>HTTP PORT:</label>
+<td><input type="text"  maxlength="5" name="dirhttp" value ="~porthttp~"
+<div><input type="submit" class="sm" value="Save" /></div>
+
+</fieldset>
+</form>
+<b>Please reboot the system to apply new settings...</b>
+</div>
+
+~inc:footer.inc~

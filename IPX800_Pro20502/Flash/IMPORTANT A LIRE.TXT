@@ -1,0 +1,61 @@
+*******************************************************************
+Mise à jour de la carte IP Relay Board IP-X800-Pro
+
+Version 2.05.02 - Copyright 2009 GCE.Electronics
+*******************************************************************
+
+Procédure de mise à jour:
+
+
+La mise à jour de la carte est divisé en 3 étapes.
+
+*******************************************************************
+Etape 1: Mise à jour du système d'exploitation résident:
+*******************************************************************
+Noter l'adresse MAC de la carte relais ( Menu Configuration)
+
+Votre carte relais IP doit etre connecté à votre réseau en "192.168.1.xxx"
+
+Vérifiez que votre ordinateur est également configuré en "192.168.1.xxx"
+
+Mettre le fichier gceip20502.hex sur la racine de votre disque dur c:\
+
+Exécutez "gceip20502.bat" et suivez les instructions.
+
+Attendre le message  "Transfert réussi"
+
+*******************************************************************
+Etape 2: Hard Reset:
+*******************************************************************
+Eteindre la carte.
+
+Repérer J2 (la pin coté relais).
+
+Repérer COM1 (la PIN coté J2).
+
+Relier les 2 pins ensembles.
+
+Démarrer la carte et attendre 10 secondes (avec les pins reliés), le relais 1 doit s'activer.
+
+Enlever le pont qui relie les 2 Pins.
+
+Eteindre et rallumer la carte.
+
+*******************************************************************
+Etape 3: Mise à jour du site WEB embarqué:
+*******************************************************************
+Lancez l'utilitaire scandevice.exe pour trouver l'adresse IP de la carte.
+
+Tapez dans votre navigateur l'adresse IP/mpfsupload
+
+Exemple pour l'adresse IP 192.168.1.100 tapez http://192.168.1.100/mpfsupload
+
+Uploader le fichier MPFSimg20502.bin
+
+Connectez vous à la carte et re-entrez votre adresse MAC.
+
+Sauver la configuration.
+
+*******************************************************************
+GCE.ELECTRONICS. Tél: 08.11.03.48.13
+*******************************************************************

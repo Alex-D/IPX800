@@ -1,0 +1,32 @@
+Voici comment configurer des présets à l'infini grace à des boutons pointant sur des liens:
+
+Chaque led (de1 à 8 ) représente un relais et son état soit:
+
+led1=0 (mettre le relais1 à 0)
+led1=1 (mettre le relais1 à 1)
+
+Le lien ci dessous  met le relais1 à 1:
+
+http://relayboard/preset.htm?led1=1 
+
+"relayboard" peux etre remplacé par l'adresse Ip de la carte)
+
+Exemple:
+
+IP de la carte = 192.168.0.1 
+
+Le lien devient:
+
+http://192.168.0.1/preset.htm?led1=1
+
+Vous pouvez changer l'état de plusieurs relais en mème temps,
+pour cela il suffit de séparer chaque led par le signe &.
+
+Exemple:
+
+Ce lien met tous les relais à 1:
+
+http://relayboard/preset.htm?led1=1&led2=1&led3=1&led4=1&led5=1&led6=1&led7=1&led8=1
+
+Vous pouvez ainsi en modifiant la page preset.htm commuter les circuits de votre choix en rajoutant
+simplement des boutons pointant sur ce type de lien.

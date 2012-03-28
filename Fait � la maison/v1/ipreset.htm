@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="viewport" content="width=device-width; height=416; initial-scale=1.0; maximum-scale=2.0;">
+	<title>IPX800 Pro</title>
+	
+	<link href="/mchp.css" rel="stylesheet" type="text/css" />
+	<script src="/mchp.js" type="text/javascript"></script>
+</head>
+
+
+<body onload="window.scrollTo(0,1)">
+	<div id="content">
+		<b>Gestion des relais</b>
+		<br/>
+		<a class="switch_out" onclick="inverser(1);">
+			<div id="switch0" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<a class="switch_out" onclick="inverser(2);">
+			<div id="switch1" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<a class="switch_out" onclick="inverser(3);">
+			<div id="switch2" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<hr class="spacer" />
+		<span class="switch_out"><b>1</b><br/>Webcam Gauche</span>
+		<span class="switch_out"><b>2</b><br/>Webcam Droite</span>
+		<span class="switch_out"><b>3</b><br/>Déscendre Borne</span>
+		<hr class="spacer" />
+		<a class="switch_out" onclick="inverser(4);">
+			<div id="switch3" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=4');">
+			<div id="switch4" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=5');">
+			<div id="switch5" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<hr class="spacer" />
+		<span class="switch_out"><b>4</b><br/>Monter Borne</span>
+		<span class="switch_out"><b>5</b><br/>Relais Libre</span>
+		<span class="switch_out"><b>6</b><br/>Relais Libre</span>
+		<hr class="spacer" />
+		<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=6');">
+			<div id="switch6" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=7');">
+			<div id="switch7" class="switch_in">
+				<span class="on">On</span>
+				<span class="mask">Mask</span>
+				<span class="off">Off</span>
+			</div>
+		</a>
+		<hr class="spacer" />
+		<span class="switch_out"><b>7</b><br/>Relais Libre</span>
+		<span class="switch_out"><b>8</b><br/>Relais Libre</span>
+	
+		<p align="center"><a href="/index.htm">Home</a></p>
+	</div>
+	
+	
+	<script type="text/javascript">
+		<!--
+		// Fin de course | Cam
+		var fdc_g = 'up';
+		var fdc_d = 'up';
+		// Fin de course | Borne
+		var fdc_h = 'up';
+		var fdc_b = 'up';
+		// Relais
+		var left = '0';
+		var right = '0';
+		var up_borne = '0';
+		var down_borne = '0';
+	
+		// Fonction saturant les relais de manière à tourner la caméra
+		// dir = 0 :: tourne vers la gauche (sens direct)
+		// dir = 1 :: tourne vers la droite (sens indirect)
+		function tourner(dir){
+			if(dir == 0 && fdc_g == 'up'){
+				newAJAXCommand('preset.htm?led1=1&led2=0');
+			} else if(dir == 1 && fdc_d == 'up'){
+				newAJAXCommand('preset.htm?led1=0&led2=1');
+			} else {
+				tournerStop();
+			}
+		}
+		function tournerStop(){
+			newAJAXCommand('preset.htm?led1=0&led2=0');
+		}
+	
+	
+		// Fonction saturant les relais de manière à monter/déscendre la borne
+		// dir = 0 :: Déscendre
+		// dir = 1 :: Monter
+		function borne(dir){
+			if(dir == 0 && (fdc_h == 'up' || (fdc_h != 'up' && fdc_b != 'up' && up_borne == '0' && down_borne == '0'))){
+				newAJAXCommand('preset.htm?led3=1&led4=0');
+			} else if(dir == 1 && (fdc_b == 'up' || (fdc_h != 'up' && fdc_b != 'up' && up_borne == '0' && down_borne == '0'))){
+				newAJAXCommand('preset.htm?led3=0&led4=1');
+			}
+		}
+	
+	
+		function inverser(relais){
+			if(relais == 1 && left == '0'){ // On demande à inverser le relais 0 = tourner caméra vers la gauche
+				tourner(0);
+			} else if(relais == 2 && right == '0'){ // On demande à inverser le relais 1 = tourner caméra vers la droite
+				tourner(1);
+			} else if(relais == 1 || relais == 2){
+				tournerStop();
+			} else if(relais == 3 && down_borne == '0'){ // On demande à inverser le relais 2 = déscendre borne
+				borne(0);
+			} else if(relais == 4 && up_borne == '0'){ // On demande à inverser le relais 3 = monter borne
+				borne(1);
+			} else if(relais == 3 || relais == 4){
+				newAJAXCommand('preset.htm?led3=0&led4=0');
+			}
+		}
+	
+	
+	
+		// Récupère la réponse au format XML dans le fichier status.xml puis met à jour les différents éléments de la page
+		function updateStatus(xmlData) {
+			// On boucle sur l'état des relais, change les boutons
+			for(i = 0; i < 8; i++) {
+				if(getXMLValue(xmlData, 'led'+i) == '1')
+					document.getElementById('switch' + i).style.marginLeft = '0'; // NO fermé
+				else
+					document.getElementById('switch' + i).style.marginLeft = '-37px'; // NO ouvert
+			}
+	
+			if(getXMLValue(xmlData, 'btn1') == 'up' && getXMLValue(xmlData, 'btn0') != 'up'){ // Haut et non bas => Montée
+				if(up_borne == '1') newAJAXCommand('preset.htm?led3=0&led4=0'); // Arrête la montée
+			} else if(getXMLValue(xmlData, 'btn1') != 'up' && getXMLValue(xmlData, 'btn0') == 'up'){ // Non haut et bas => Déscendue
+				if(down_borne == '1') newAJAXCommand('preset.htm?led3=0&led4=0'); // Arrête la déscente
+			}
+	
+			// Enregistrement pour futurs tests
+			fdc_g = getXMLValue(xmlData, 'btn3'); // In 1
+			fdc_d = getXMLValue(xmlData, 'btn2'); // In 2
+			fdc_h = getXMLValue(xmlData, 'btn1'); // In 3
+			fdc_b = getXMLValue(xmlData, 'btn0'); // In 4
+	
+			left = getXMLValue(xmlData, 'led0');
+			right = getXMLValue(xmlData, 'led1');
+			down_borne = getXMLValue(xmlData, 'led2');
+			up_borne = getXMLValue(xmlData, 'led3');
+		}
+	
+		// Actualise la page toutes les 500ms en appelant la fonction ci-dessus
+		setTimeout("newAJAXCommand('status.xml', updateStatus, true)", 500);
+		//-->
+	</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+~inc:header.inc~
+<div id="content">
+	<div id="status">
+		<!-- Message d'erreur masqué par défaut, affiché en cas de perte de connexion -->
+		<div id="loading" style="display:none">
+			Erreur :<br />
+			La connexion à la carte a été perdue
+		</div>
+		
+		
+		<div id="display">
+			<div id="video_bloc">
+				<a id="led0" onmousedown="tourner(0);" onmouseup="tournerStop();">
+					<div id="voir_gauche" class="in_fleche">
+						Voir plus<br/>
+						à gauche
+					</div>
+					<div id="fdc_gauche" class="in_fleche" style="color: #da0000; padding: 10px 0 0 27px; display: none;">
+						Fin de course
+					</div>
+					<div id="fleche_gauche" class="fleche"></div>
+				</a>
+				<div id="cam">
+					<object type="application/x-shockwave-flash" width="687" height="500" data="./camera.swf">
+						<param name="movie" value="./camera.swf" />
+						<param name="allowFullScreen" value="true" />
+						<param name="allowScriptAccess" value="always" />
+						<param name="wmode" value="transparent" />
+						<embed src="./camera.swf" type="application/x-shockwave-flash" width="687" height="500" allowFullScreen="true" allowScriptAccess="always"></embed>
+					</object>
+				</div>
+				<a id="led1" onmousedown="tourner(1);" onmouseup="tournerStop();">
+					<div id="voir_droite" class="in_fleche">
+						Voir plus<br/>
+						à droite
+					</div>
+					<div id="fdc_droite" class="in_fleche" style="color: #da0000; padding: 10px 0 0 7px; display: none;">
+						Fin de course
+					</div>
+					<div id="fleche_droite" class="fleche"></div>
+				</a>
+			</div>
+			
+			<br/>
+			<br/>
+			
+			<div id="borne_bloc" class="bloc">
+				<h5>Gestion de la borne</h5>
+				Position actuelle de la borne : <span id="position_borne">Montée</span><br/>
+				<br/>
+				<div id="actions_borne">
+					<a class="btn" onclick="borne(0);">Déscendre la borne</a>
+					<a class="btn" onclick="borne(1);">Monter la borne</a>
+					<a class="btn" onclick="newAJAXCommand('preset.htm?led3=0&led4=0');">Arrêter</a>
+				</div>
+				<br/>
+			</div>
+			
+			<br/>
+			<br/>
+
+			<div class="bloc">
+				<h5>Gestion des relais</h5>
+				<a class="switch_out" onclick="inverser(1);">
+					<div id="switch0" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="inverser(2);">
+					<div id="switch1" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="inverser(3);">
+					<div id="switch2" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="inverser(4);">
+					<div id="switch3" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=4');">
+					<div id="switch4" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=5');">
+					<div id="switch5" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=6');">
+					<div id="switch6" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				<a class="switch_out" onclick="newAJAXCommand('leds.cgi?led=7');">
+					<div id="switch7" class="switch_in">
+						<span class="on">On</span>
+						<span class="mask">Mask</span>
+						<span class="off">Off</span>
+					</div>
+				</a>
+				
+				<hr class="spacer" />
+				<span class="switch_out"><b>1</b><br/>Webcam Gauche</span>
+				<span class="switch_out"><b>2</b><br/>Webcam Droite</span>
+				<span class="switch_out"><b>3</b><br/>Descendre Borne</span>
+				<span class="switch_out"><b>4</b><br/>Monter Borne</span>
+				<span class="switch_out"><b>5</b><br/>Relais Libre</span>
+				<span class="switch_out"><b>6</b><br/>Relais Libre</span>
+				<span class="switch_out"><b>7</b><br/>Relais Libre</span>
+				<span class="switch_out"><b>8</b><br/>Relais Libre</span>
+				<hr class="spacer" />
+				<br/>
+			</div>
+			
+			<br/>
+			<br/>
+			
+			<div class="bloc">
+				<h5>Vue sur l'état des entrées</h5>
+				<a class="switch_out">
+					<div id="in3" class="switch_in">
+						<span class="on">1</span>
+						<span class="mask">Mask</span>
+						<span class="off">0</span>
+					</div>
+				</a>
+				<a class="switch_out">
+					<div id="in2" class="switch_in">
+						<span class="on">1</span>
+						<span class="mask">Mask</span>
+						<span class="off">0</span>
+					</div>
+				</a>
+				<a class="switch_out">
+					<div id="in1" class="switch_in">
+						<span class="on">1</span>
+						<span class="mask">Mask</span>
+						<span class="off">0</span>
+					</div>
+				</a>
+				<a class="switch_out">
+					<div id="in0" class="switch_in">
+						<span class="on">1</span>
+						<span class="mask">Mask</span>
+						<span class="off">0</span>
+					</div>
+				</a>
+
+				<hr class="spacer" />
+				<span class="switch_out"><b>1</b><br/>FDC Cam Gauche</span>
+				<span class="switch_out"><b>2</b><br/>FDC Cam Droite</span>
+				<span class="switch_out"><b>3</b><br/>FDC Borne Haut</span>
+				<span class="switch_out"><b>4</b><br/>FDC Borne Bas</span>
+				<hr class="spacer" />
+				<br/>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	<!--
+	// Fin de course | Cam
+	var fdc_g = 'up';
+	var fdc_d = 'up';
+	// Fin de course | Borne
+	var fdc_h = 'up';
+	var fdc_b = 'up';
+	// Relais
+	var left = '0';
+	var right = '0';
+	var up_borne = '0';
+	var down_borne = '0';
+	
+	// Fonction saturant les relais de manière à tourner la caméra
+	// dir = 0 :: tourne vers la gauche (sens direct)
+	// dir = 1 :: tourne vers la droite (sens indirect)
+	function tourner(dir){
+		if(dir == 0 && fdc_g == 'up'){
+			newAJAXCommand('preset.htm?led1=1&led2=0');
+		} else if(dir == 1 && fdc_d == 'up'){
+			newAJAXCommand('preset.htm?led1=0&led2=1');
+		} else {
+			tournerStop();
+		}
+	}
+	function tournerStop(){
+		newAJAXCommand('preset.htm?led1=0&led2=0');
+	}
+	
+	
+	// Fonction saturant les relais de manière à monter/déscendre la borne
+	// dir = 0 :: Déscendre
+	// dir = 1 :: Monter
+	function borne(dir){
+		// descendre ET pas fdc bas ET pas descendre borne
+		if(dir == 0 && fdc_b == 'up' && down_borne == '0'){
+			newAJAXCommand('preset.htm?led3=1&led4=0');
+		// monter ET pas fdc haut ET pas monter borne
+		} else if(dir == 1 && fdc_h == 'up' && up_borne == '0'){
+			newAJAXCommand('preset.htm?led3=0&led4=1');
+		}
+	}
+	
+	
+	function inverser(relais){
+		if(relais == 1 && left == '0'){ // On demande à inverser le relais 0 = tourner caméra vers la gauche
+			tourner(0);
+		} else if(relais == 2 && right == '0'){ // On demande à inverser le relais 1 = tourner caméra vers la droite
+			tourner(1);
+		} else if(relais == 1 || relais == 2){
+			tournerStop();
+		} else if(relais == 3 && down_borne == '0'){ // On demande à inverser le relais 2 = déscendre borne
+			borne(0);
+		} else if(relais == 4 && up_borne == '0'){ // On demande à inverser le relais 3 = monter borne
+			borne(1);
+		} else if(relais == 3 || relais == 4){
+			newAJAXCommand('preset.htm?led3=0&led4=0');
+		}
+	}
+	
+	
+	
+	// Récupère la réponse au format XML dans le fichier status.xml puis met à jour les différents éléments de la page
+	function updateStatus(xmlData) {
+		// Vérifie si le délais d'attente est dépassé
+		if(!xmlData) {
+			// Si le délais est dépassé
+			document.getElementById('display').style.visibility = 'hidden';		// On masque le contenu de la page (div ayant l'id 'display')
+			document.getElementById('loading').style.display = 'block';	// On affiche le message d'erreur (div ayant l'id 'loading')
+			return;
+		}
+	
+	
+		// On s'assure que le message d'erreur est masqué et qu'on affiche le contenu de la page
+		document.getElementById('loading').style.display = 'none';
+		document.getElementById('display').style.visibility = 'visible';
+		
+		
+		// On boucle sur l'état des relais, change les boutons
+		for(i = 0; i < 8; i++) {
+			if(getXMLValue(xmlData, 'led'+i) == '1')
+				document.getElementById('switch' + i).style.marginLeft = '0'; // NO fermé
+			else
+				document.getElementById('switch' + i).style.marginLeft = '-37px'; // NO ouvert
+		}
+		
+		// On boucle sur l'état des relais, change les boutons
+		for(i = 0; i < 4; i++) {
+			if(getXMLValue(xmlData, 'btn'+i) == 'up')
+				document.getElementById('in' + i).style.marginLeft = '-37px'; // NO fermé
+			else
+				document.getElementById('in' + i).style.marginLeft = '0'; // NO ouvert
+		}
+	
+		// On boucle sur l'état des relais, change la couleur du texte des flèches
+		for(i = 0; i < 2; i++) {
+			if(getXMLValue(xmlData, 'led'+i) == '1')
+				document.getElementById('led' + i).style.color = 'blue'; // NO fermé
+			else
+				document.getElementById('led' + i).style.color = '#EEE'; // NO ouvert
+		}
+		// Etat des relais pour afficher la position de la borne
+		if(getXMLValue(xmlData, 'led2') == '1'){
+			document.getElementById('position_borne').innerHTML = 'Déscente en cours...';
+		} else if(getXMLValue(xmlData, 'led3') == '1'){
+			document.getElementById('position_borne').innerHTML = 'Montée en cours...';
+		} else if(getXMLValue(xmlData, 'led2') == '0' && getXMLValue(xmlData, 'led3') == '0') {
+			document.getElementById('position_borne').innerHTML = 'Intermédiaire, à l\'arrêt';
+		}
+	
+		
+		// Entrées logiques TOR et on affiche la bordure selon l'état de l'entrée
+		if(getXMLValue(xmlData, 'btn3') == 'up'){ // In 1 = FDC gauche
+			document.getElementById('cam').style.borderLeftColor = '';			  // Bordure gauche cam
+			document.getElementById('fleche_gauche').style.borderRightColor = ''; // Fond flèche
+			document.getElementById('voir_gauche').style.display = 'block';
+			document.getElementById('fdc_gauche').style.display = 'none';
+		} else {
+			document.getElementById('cam').style.borderLeftColor = '#da0000';			 // Bordure gauche cam
+			document.getElementById('fleche_gauche').style.borderRightColor = '#f2f2f2'; // Fond flèche
+			document.getElementById('voir_gauche').style.display = 'none';
+			document.getElementById('fdc_gauche').style.display = 'block';
+			if(left == '1') tournerStop();
+		}
+		
+		if(getXMLValue(xmlData, 'btn2') == 'up'){ // In 2 = FDC droite
+			document.getElementById('cam').style.borderRightColor = '';			 // Bordure droite cam
+			document.getElementById('fleche_droite').style.borderLeftColor = ''; // Fond flèche
+			document.getElementById('voir_droite').style.display = 'block';
+			document.getElementById('fdc_droite').style.display = 'none';
+		} else {
+			document.getElementById('cam').style.borderRightColor = '#da0000';			 // Bordure droite cam
+			document.getElementById('fleche_droite').style.borderLeftColor = '#f2f2f2'; // Fond flèche
+			document.getElementById('voir_droite').style.display = 'none';
+			document.getElementById('fdc_droite').style.display = 'block';
+			if(right == '1') tournerStop();
+		}
+		
+		if(getXMLValue(xmlData, 'btn1') != 'up' && getXMLValue(xmlData, 'btn0') == 'up'){ // Haut et non bas => Montée
+			document.getElementById('position_borne').innerHTML = 'Montée';
+			if(up_borne == '1') newAJAXCommand('preset.htm?led3=0&led4=0'); // Arrête la montée
+		} else if(getXMLValue(xmlData, 'btn1') == 'up' && getXMLValue(xmlData, 'btn0') != 'up'){ // Non haut et bas => Déscendue
+			document.getElementById('position_borne').innerHTML = 'Déscendue';
+			if(down_borne == '1') newAJAXCommand('preset.htm?led3=0&led4=0'); // Arrête la déscente
+		}
+		
+		// Enregistrement pour futurs tests
+		fdc_g = getXMLValue(xmlData, 'btn3'); // In 1
+		fdc_d = getXMLValue(xmlData, 'btn2'); // In 2
+		fdc_h = getXMLValue(xmlData, 'btn1'); // In 3
+		fdc_b = getXMLValue(xmlData, 'btn0'); // In 4
+		
+		left = getXMLValue(xmlData, 'led0');
+		right = getXMLValue(xmlData, 'led1');
+		down_borne = getXMLValue(xmlData, 'led2');
+		up_borne = getXMLValue(xmlData, 'led3');
+	}
+	
+	// Actualise la page toutes les 500ms en appelant la fonction ci-dessus
+	setTimeout("newAJAXCommand('status.xml', updateStatus, true)", 500);
+	//-->
+</script>
+
+
+~inc:footer.inc~
